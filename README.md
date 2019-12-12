@@ -58,7 +58,7 @@ Translates text from one language to another. Requires the source and target lan
 ```
 window["MLKitTranslate"].translate("hello", "en", "es",
         (data)=>console.log(`Translated text is ${data}`),
-        (err)=>{console.log("Something went wrong with the translation")
+        (err)=>console.log("Something went wrong with the translation")
 })
 ```
 
@@ -84,7 +84,7 @@ Success data will be a language object with two properties
 ```
 window["MLKitTranslate"].identify("hello",
         (data)=>console.log("`"Identified text is",  data),
-        (err)=>{console.log("Something went wrong with the translation")
+        (err)=>console.log("Something went wrong with the translation")
 })
 
 // returns Identified text is {"code": "en", "displayName": "English"}
@@ -108,7 +108,7 @@ Success data will be an array with language objects (see above)
 ```
 window["MLKitTranslate"].getDownloadedModels(
         (data)=>console.log(data),
-        (err)=>{console.log(err)
+        (err)=>console.log(err)
 })
 
 // returns [{"code": "en", "displayName": "English"}]
@@ -132,7 +132,7 @@ Success data will be an array with language objects (see above)
 ```
 window["MLKitTranslate"].getAvailableModels(
         (data)=>console.log(data),
-        (err)=>{console.log(err)
+        (err)=>console.log(err)
 })
 
 // returns [{"code": "en", "displayName": "English"}, {"code", "es", "displayName": "Spanish"}, ...]
@@ -157,7 +157,7 @@ Success data will be a language object of the downloaded language.
 ```
 window["MLKitTranslate"].downloadLanguage("es",
         (data)=>console.log(data),
-        (err)=>{console.log(err)
+        (err)=>console.log(err)
 })
 
 // returns {"code", "es", "displayName": "Spanish"}
