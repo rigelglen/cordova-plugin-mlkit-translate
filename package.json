@@ -1,0 +1,29 @@
+{
+  "name": "cordova-plugin-mlkit-translate",
+  "version": "1.0.0",
+  "author": "Rigel Glen <rigelglen@gmail.com>",
+  "license": "MIT",
+  "description": "Cordova plugin for MLKit translate.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rigelglen/cordova-plugin-mlkit-translate"
+  },
+  "cordova": {
+    "id": "cordova-plugin-mlkit-translate",
+    "platforms": [
+      "android"
+    ]
+  },
+  "engines": {
+    "cordovaDependencies": {
+      "cordova-android": ">=8.0.0"
+    }
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-android",
+    "mlkit",
+    "mlkit-translate",
+    "translate"
+  ]
+}

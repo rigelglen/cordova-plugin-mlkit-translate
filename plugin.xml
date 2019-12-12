@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<plugin id="cordova-plugin-mlkit-translate" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>MLKit Translate Plugin</name>
+
+    <license>MIT</license>
+
+    <dependency id="cordova-plugin-firebasex" version="^7.0.1"></dependency>
+
+    <engines>
+        <engine name="cordova" version=">=9" />
+        <engine name="cordova-android" version=">=8" />
+        <engine name="cordova-ios" version=">=5" />
+    </engines>
+
+    <js-module name="MLKitTranslate" src="www/translateText.js">
+        <clobbers target="MLKitTranslate" />
+    </js-module>
+
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="MLKitTranslate">
+                <param name="android-package" value="com.rigelglen.MLKitTranslate" />
+            </feature>
+        </config-file>
+
+        <source-file src="src/android/com/rigelglen/MLKitTranslate.java" target-dir="src/com/rigelglen" />
+
+        <preference name="FIREBASE_ML_NATURAL_LANGUAGE_VERSION" default="22.0.0" />
+        <preference name="FIREBASE_ML_NATURAL_LANGUAGE_MODEL_VERSION" default="20.0.7" />
+        <preference name="FIREBASE_ML_NATURAL_LANGUAGE_ID_VERSION" default="20.0.7" />
+
+        <framework src="com.google.firebase:firebase-ml-natural-language:$FIREBASE_ML_NATURAL_LANGUAGE_VERSION" />
+        <framework src="com.google.firebase:firebase-ml-natural-language-translate-model:$FIREBASE_ML_NATURAL_LANGUAGE_MODEL_VERSION" />
+        <framework src="com.google.firebase:firebase-ml-natural-language-language-id-model:$FIREBASE_ML_NATURAL_LANGUAGE_ID_VERSION" />
+    </platform>
+
+    <!-- <platform name="ios">
+        <js-module name="TranslatePlugin" src="www/translateText.js">
+            <clobbers target="TranslatePlugin" />
+        </js-module>
+
+        <config-file parent="/*" target="config.xml">
+            <feature name="TranslatePlugin">
+                <param name="ios-package" value="TranslatePlugin" />
+                <param name="onload" value="true" />
+            </feature>
+        </config-file>
+        <config-file parent="aps-environment" target="*/Entitlements-Debug.plist">
+            <string>development</string>
+        </config-file>
+        <config-file parent="aps-environment" target="*/Entitlements-Release.plist">
+            <string>production</string>
+        </config-file>
+    
+        <resource-file src="src/ios/GoogleService-Info.plist" />
+
+        <header-file src="src/ios/AppDelegate+FirebasePlugin.h" />
+        <source-file src="src/ios/AppDelegate+FirebasePlugin.m" />
+        <header-file src="src/ios/FirebasePlugin.h" />
+        <source-file src="src/ios/FirebasePlugin.m" />
+
+        <podspec>
+            <config>
+                <source url="https://cdn.cocoapods.org/" />
+            </config>
+            <pods use-frameworks="true">
+                <pod name="Firebase/Core" spec="6.13.0" />
+                <pod name="Firebase/Auth" spec="6.13.0" />
+                <pod name="Firebase/Messaging" spec="6.13.0" />
+                <pod name="Firebase/Performance" spec="6.13.0" />
+                <pod name="Firebase/RemoteConfig" spec="6.13.0" />
+                <pod name="Fabric" spec="1.10.2" />
+                <pod name="Crashlytics" spec="3.14.0" />
+            </pods>
+        </podspec>
+
+    </platform> -->
+
+</plugin>
