@@ -60,6 +60,8 @@ window["MLKitTranslate"].translate("hello", "en", "es",
         (data)=>console.log(`Translated text is ${data}`),
         (err)=>console.log("Something went wrong with the translation")
 })
+
+// Translated text is hola
 ```
 
 #### identify
@@ -83,11 +85,11 @@ Success data will be a language object with two properties
 
 ```
 window["MLKitTranslate"].identify("hello",
-        (data)=>console.log("`"Identified text is",  data),
+        (data)=>console.log("Identified text is",  data),
         (err)=>console.log("Something went wrong with the translation")
 })
 
-// returns Identified text is {"code": "en", "displayName": "English"}
+// Identified text is {"code": "en", "displayName": "English"}
 ```
 
 #### getDownloadedModels
@@ -111,7 +113,7 @@ window["MLKitTranslate"].getDownloadedModels(
         (err)=>console.log(err)
 })
 
-// returns [{"code": "en", "displayName": "English"}]
+// [{"code": "en", "displayName": "English"}]
 ```
 
 #### getAvailableModels
@@ -135,7 +137,7 @@ window["MLKitTranslate"].getAvailableModels(
         (err)=>console.log(err)
 })
 
-// returns [{"code": "en", "displayName": "English"}, {"code", "es", "displayName": "Spanish"}, ...]
+// [{"code": "en", "displayName": "English"}, {"code", "es", "displayName": "Spanish"}, ...]
 ```
 
 #### downloadLanguage
@@ -160,7 +162,7 @@ window["MLKitTranslate"].downloadLanguage("es",
         (err)=>console.log(err)
 })
 
-// returns {"code", "es", "displayName": "Spanish"}
+// {"code", "es", "displayName": "Spanish"}
 ```
 
 #### deleteLanguage
@@ -185,7 +187,7 @@ window["MLKitTranslate"].deleteLanguage("es",
         (err)=>{console.log(err)
 })
 
-// returns {"code", "es", "displayName": "Spanish"}
+// {"code", "es", "displayName": "Spanish"}
 ```
 
 ## LICENSE
