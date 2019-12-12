@@ -80,6 +80,7 @@ Success data will be a language object with two properties
 - {function} displayName - Name of the language
 
 ##### Example
+
 ```
 window["MLKitTranslate"].identify("hello",
         (data)=>console.log("`"Identified text is",  data),
@@ -103,6 +104,7 @@ List of models that have been downloaded to the device.
 Success data will be an array with language objects (see above)
 
 ##### Example
+
 ```
 window["MLKitTranslate"].getDownloadedModels(
         (data)=>console.log(data),
@@ -151,6 +153,7 @@ Downloads a specified language.
 Success data will be a language object of the downloaded language.
 
 ##### Example
+
 ```
 window["MLKitTranslate"].downloadLanguage("es",
         (data)=>console.log(data),
@@ -175,6 +178,7 @@ Delete a specified language.
 Success data will be a language object of the deleted language.
 
 ##### Example
+
 ```
 window["MLKitTranslate"].deleteLanguage("es",
         (data)=>console.log(data),
@@ -186,4 +190,4 @@ window["MLKitTranslate"].deleteLanguage("es",
 
 ## LICENSE
 
-This plugin is licensed under the [MIT License](LICENSE.md)
+This plugin is licensed under the [MIT License](/LICENSE)
