@@ -2,16 +2,17 @@
 
 Cordova Plugin that implements MLKit Translation and Language Identification features.
 
-Currently only supports Android. iOS support WIP.
+Supports both iOS and Android.
 
 ### Version Support
 
 - cordova `>=9`
 - cordova-android `>=8`
+- cordova-ios `>=5`
 
 ### Dependencies
 
-This plugin depends on [cordova-plugin-firebasex](https://github.com/dpa99c/cordova-plugin-firebasex)
+This plugin depends on [cordova-plugin-firebasex](https://github.com/dpa99c/cordova-plugin-firebasex) on android.
 
 ## Installation
 
@@ -29,7 +30,7 @@ cordova plugin add cordova-plugin-mlkit-translate
 
 - Make sure you have your google-services.json file in your project's root folder.
 
-## Variables
+## Variables (android only)
 
 |                  Variable                  | Default |
 | :----------------------------------------: | :-----: |
@@ -39,11 +40,11 @@ cordova plugin add cordova-plugin-mlkit-translate
 
 ## API
 
-You can access all these methods via the window["MLKitTranslate"] object. Ionic Native wrapper coming soon
+You can access all these methods via the window["MLKitTranslate"] object. Ionic Native wrapper WIP.
 
 #### translate
 
-Translates text from one language to another. Requires the source and target languages to be downloaded. If not the languages are downloaded in the background automatically.
+Translates text from one language to another. Requires the source and target languages need to be downloaded. If not the languages are downloaded in the background automatically.
 
 ##### Parameters
 
@@ -60,13 +61,11 @@ window["MLKitTranslate"].translate("hello", "en", "es",
         (data)=>console.log(`Translated text is ${data}`),
         (err)=>console.log("Something went wrong with the translation")
 })
-
-// Translated text is hola
 ```
 
-#### identify
+#### identifyLanguage
 
-Identifies the language of the text.
+Determines the language of a string of text.
 
 ##### Parameters
 
@@ -74,7 +73,7 @@ Identifies the language of the text.
 - {function} success - callback function which takes a parameter data which will be invoked on success
 - {function} error - callback function which takes a parameter err which will be invoked on failure
 
-##### Data format
+## Data format
 
 Success data will be a language object with two properties
 
@@ -84,17 +83,17 @@ Success data will be a language object with two properties
 ##### Example
 
 ```
-window["MLKitTranslate"].identify("hello",
+window["MLKitTranslate"].identifyLanguage("hello",
         (data)=>console.log("Identified text is",  data),
         (err)=>console.log("Something went wrong with the translation")
 })
 
-// Identified text is {"code": "en", "displayName": "English"}
+// prints Identified text is {"code": "en", "displayName": "English"}
 ```
 
 #### getDownloadedModels
 
-List of models that have been downloaded to the device.
+List of language models that have been downloaded to the device.
 
 ##### Parameters
 
@@ -113,12 +112,12 @@ window["MLKitTranslate"].getDownloadedModels(
         (err)=>console.log(err)
 })
 
-// [{"code": "en", "displayName": "English"}]
+// prints [{"code": "en", "displayName": "English"}]
 ```
 
 #### getAvailableModels
 
-List of models that can be downloaded.
+List of language models that can be downloaded.
 
 ##### Parameters
 
@@ -137,12 +136,12 @@ window["MLKitTranslate"].getAvailableModels(
         (err)=>console.log(err)
 })
 
-// [{"code": "en", "displayName": "English"}, {"code", "es", "displayName": "Spanish"}, ...]
+// prints [{"code": "en", "displayName": "English"}, {"code", "es", "displayName": "Spanish"}, ...]
 ```
 
-#### downloadLanguage
+#### downloadModel
 
-Downloads a specified language.
+Downloads a specified language model.
 
 ##### Parameters
 
@@ -157,17 +156,17 @@ Success data will be a language object of the downloaded language.
 ##### Example
 
 ```
-window["MLKitTranslate"].downloadLanguage("es",
+window["MLKitTranslate"].downloadModel("es",
         (data)=>console.log(data),
         (err)=>console.log(err)
 })
 
-// {"code", "es", "displayName": "Spanish"}
+// prints {"code", "es", "displayName": "Spanish"}
 ```
 
-#### deleteLanguage
+#### deleteModel
 
-Delete a specified language.
+Delete a specified language model.
 
 ##### Parameters
 
@@ -182,14 +181,14 @@ Success data will be a language object of the deleted language.
 ##### Example
 
 ```
-window["MLKitTranslate"].deleteLanguage("es",
+window["MLKitTranslate"].deleteModel("es",
         (data)=>console.log(data),
-        (err)=>{console.log(err)
+        (err)=>console.log(err)
 })
 
-// {"code", "es", "displayName": "Spanish"}
+// prints {"code", "es", "displayName": "Spanish"}
 ```
 
 ## LICENSE
 
-This plugin is licensed under the [MIT License](/LICENSE)
+This plugin is licensed under the [MIT License](LICENSE.md)

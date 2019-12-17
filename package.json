@@ -11,17 +11,15 @@
   "cordova": {
     "id": "cordova-plugin-mlkit-translate",
     "platforms": [
-      "android"
+      "android",
+      "ios"
     ]
-  },
-  "engines": {
-    "cordovaDependencies": {
-      "cordova-android": ">=8.0.0"
-    }
   },
   "keywords": [
     "ecosystem:cordova",
     "cordova-android",
+    "cordova-ios",
+    "firebase",
     "mlkit",
     "mlkit-translate",
     "translate"

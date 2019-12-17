@@ -1,21 +1,41 @@
 var exec = require("cordova/exec");
 
 module.exports = {
-  translate: function(text, targetLang, sourceLang) {
-    if (sourceLang == undefined) {
-      cordova.exec(resolve, reject, "MLKitTranslate", "identifyTranslate", [
-        text,
-        targetLang
-      ]);
+  translate: function(
+    text,
+    targetLang,
+    sourceLang,
+    successCallback,
+    errorCallback
+  ) {
+    if (typeof sourceLang == "function") {
+      errorCallback = successCallback;
+      successCallback = sourceLang;
+      cordova.exec(
+        successCallback,
+        errorCallback,
+        "MLKitTranslate",
+        "identifyTranslate",
+        [text, targetLang]
+      );
+    } else {
+      cordova.exec(
+        successCallback,
+        errorCallback,
+        "MLKitTranslate",
+        "translate",
+        [text, sourceLang, targetLang]
+      );
     }
-    cordova.exec(resolve, reject, "MLKitTranslate", "translate", [
-      text,
-      sourceLang,
-      targetLang
-    ]);
   },
-  identify: function(text) {
-    cordova.exec(resolve, reject, "MLKitTranslate", "identify", [text]);
+  identifyLanguage: function(text, successCallback, errorCallback) {
+    cordova.exec(
+      successCallback,
+      errorCallback,
+      "MLKitTranslate",
+      "identifyLanguage",
+      [text]
+    );
   },
   getDownloadedModels: function(successCallback, errorCallback) {
     exec(
@@ -25,13 +45,13 @@ module.exports = {
       "getDownloadedModels"
     );
   },
-  downloadLanguage: function(code, successCallback, errorCallback) {
-    exec(successCallback, errorCallback, "MLKitTranslate", "downloadLanguage", [
+  downloadModel: function(code, successCallback, errorCallback) {
+    exec(successCallback, errorCallback, "MLKitTranslate", "downloadModel", [
       code
     ]);
   },
-  deleteLanguage: function(code, successCallback, errorCallback) {
-    exec(successCallback, errorCallback, "MLKitTranslate", "deleteLanguage", [
+  deleteModel: function(code, successCallback, errorCallback) {
+    exec(successCallback, errorCallback, "MLKitTranslate", "deleteModel", [
       code
     ]);
   },

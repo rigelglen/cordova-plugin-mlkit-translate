@@ -73,7 +73,7 @@ public class MLKitTranslate extends CordovaPlugin {
         return new FirebaseTranslateRemoteModel.Builder(languageCode).build();
     }
 
-    private void downloadLanguage(final Language language, final CallbackContext callbackContext) {
+    private void downloadModel(final Language language, final CallbackContext callbackContext) {
         final FirebaseTranslateRemoteModel model = getModel(
                 FirebaseTranslateLanguage.languageForLanguageCode(language.getCode()));
         modelManager.download(model, new FirebaseModelDownloadConditions.Builder().build())
@@ -81,20 +81,20 @@ public class MLKitTranslate extends CordovaPlugin {
                     if (task.isSuccessful())
                         callbackContext.success(language.getJSONObject());
                     else
-                        callbackContext.error("Could not delete");
-                }).addOnFailureListener(err -> callbackContext.error("Could not download"));
+                        callbackContext.error("Could not download language model");
+                }).addOnFailureListener(err -> callbackContext.error("Could not download language model"));
     }
 
     // Deletes a locally stored translation model.
-    private void deleteLanguage(final Language language, final CallbackContext callbackContext) {
+    private void deleteModel(final Language language, final CallbackContext callbackContext) {
         final FirebaseTranslateRemoteModel model = getModel(
                 FirebaseTranslateLanguage.languageForLanguageCode(language.getCode()));
         modelManager.deleteDownloadedModel(model).addOnCompleteListener(task -> {
             if (task.isSuccessful())
                 callbackContext.success(language.getJSONObject());
             else
-                callbackContext.error("Could not delete");
-        }).addOnFailureListener(err -> callbackContext.error("Could not delete"));
+                callbackContext.error("Could not delete language model");
+        }).addOnFailureListener(err -> callbackContext.error("Could not delete language model"));
     }
 
     private void translate(String text, Language target, CallbackContext callbackContext) {
@@ -226,12 +226,12 @@ public class MLKitTranslate extends CordovaPlugin {
         case "getDownloadedModels":
             cordova.getThreadPool().execute(() -> getDownloadedModels(callbackContext));
             return true;
-        case "downloadLanguage":
+        case "downloadModel":
             cordova.getThreadPool().execute(() -> {
                 try {
                     final String langCode = args.getString(0);
                     final Language language = new Language(langCode);
-                    downloadLanguage(language, callbackContext);
+                    downloadModel(language, callbackContext);
                 } catch (final Exception e) {
                     callbackContext.error("Invalid parameters");
                     final PluginResult r = new PluginResult(PluginResult.Status.ERROR);
@@ -239,13 +239,13 @@ public class MLKitTranslate extends CordovaPlugin {
                 }
             });
             return true;
-        case "deleteLanguage":
+        case "deleteModel":
             cordova.getThreadPool().execute(() -> {
 
                 try {
                     final String langCode = args.getString(0);
                     final Language language = new Language(langCode);
-                    deleteLanguage(language, callbackContext);
+                    deleteModel(language, callbackContext);
                 } catch (final Exception e) {
                     callbackContext.error("Invalid parameters");
                     final PluginResult r = new PluginResult(PluginResult.Status.ERROR);
