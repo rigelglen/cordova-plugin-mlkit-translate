@@ -73,7 +73,7 @@ Determines the language of a string of text.
 - {function} success - callback function which takes a parameter data which will be invoked on success
 - {function} error - callback function which takes a parameter err which will be invoked on failure
 
-## Data format
+#### Data format
 
 Success data will be a language object with two properties
 
