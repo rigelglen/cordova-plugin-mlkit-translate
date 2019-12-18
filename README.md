@@ -78,7 +78,7 @@ Determines the language of a string of text.
 Success data will be a language object with two properties
 
 - {string} code - [BCP-47](https://en.wikipedia.org/wiki/IETF_language_tag) language code
-- {function} displayName - Name of the language
+- {string} displayName - Name of the language
 
 ##### Example
 
