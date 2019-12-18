@@ -28,7 +28,7 @@ or run
 cordova plugin add cordova-plugin-mlkit-translate
 ```
 
-- Make sure you have your google-services.json file in your project's root folder.
+- **Make sure you have your google-services.json or GoogleService-Info.plist file in your project's root folder.**
 
 ## Variables (android only)
 
