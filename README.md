@@ -60,7 +60,8 @@ npm install @ionic-native/mlkit-translate
 
 ### Dependencies
 
-This plugin depends on [cordova-plugin-firebasex](https://github.com/dpa99c/cordova-plugin-firebasex) on android.
+- This plugin depends on [cordova-plugin-firebasex](https://github.com/dpa99c/cordova-plugin-firebasex) on Android.
+- This plugin depends on [tcordova-plugin-add-swift-support](https://github.com/akofman/cordova-plugin-add-swift-support) on iOS.
 
 
 ## Variables
