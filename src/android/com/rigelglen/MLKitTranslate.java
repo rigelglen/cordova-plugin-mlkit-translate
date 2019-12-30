@@ -34,6 +34,7 @@ import androidx.annotation.NonNull;
 
 public class MLKitTranslate extends CordovaPlugin {
     private FirebaseModelManager modelManager;
+    protected static final String TAG = "MLKitTranslatePlugin";
 
     @Override
     public void initialize(CordovaInterface cordova, CordovaWebView webView) {
@@ -60,11 +61,8 @@ public class MLKitTranslate extends CordovaPlugin {
         for (final Integer languageId : languageIds) {
             String langCode = FirebaseTranslateLanguage.languageCodeForLanguage(languageId);
             Language language = new Language(langCode);
-            Log.i("abc", "langCode => " + langCode + " displayName => " + new Locale(langCode).getDisplayName());
             languages.add(language);
         }
-        Log.i("abc", languageIds.toString());
-        Log.i("abc", languages.toString());
         final JSONArray result = arrayToJSON(languages);
         callbackContext.success(result);
     }
@@ -310,7 +308,7 @@ public class MLKitTranslate extends CordovaPlugin {
                 obj.put("code", code);
                 obj.put("displayName", displayName);
             } catch (JSONException e) {
-                Log.i("abc", "DefaultListItem.toString JSONException: " + e.getMessage());
+                Log.e(TAG, "DefaultListItem.toString JSONException: " + e.getMessage());
             }
             return obj;
         }
