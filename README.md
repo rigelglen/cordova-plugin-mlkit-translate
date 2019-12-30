@@ -1,6 +1,8 @@
 # Cordova MLKit Translation
 
-![npm](https://img.shields.io/npm/v/cordova-plugin-mlkit-translate?style=for-the-badge) ![npm](https://img.shields.io/npm/dt/cordova-plugin-mlkit-translate?style=for-the-badge) ![NPM](https://img.shields.io/npm/l/cordova-plugin-mlkit-translate?style=for-the-badge)
+[![npm](https://img.shields.io/npm/v/cordova-plugin-mlkit-translate?style=for-the-badge)](https://www.npmjs.com/package/cordova-plugin-mlkit-translate)
+[![npm](https://img.shields.io/npm/dt/cordova-plugin-mlkit-translate?style=for-the-badge)](https://www.npmjs.com/package/cordova-plugin-mlkit-translate)
+[![NPM](https://img.shields.io/npm/l/cordova-plugin-mlkit-translate?style=for-the-badge)](LICENSE)
 
 Cordova Plugin that implements MLKit Translation and Language Identification features.
 
@@ -304,4 +306,4 @@ this.mlkitTranslate.deleteModel("es").then(lang=>{
 
 ## LICENSE
 
-This plugin is licensed under the [MIT License](LICENSE.md)
+This plugin is licensed under the [MIT License](LICENSE)
