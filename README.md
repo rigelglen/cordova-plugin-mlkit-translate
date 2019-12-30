@@ -8,6 +8,14 @@ Cordova Plugin that implements MLKit Translation and Language Identification fea
 
 Supports both iOS and Android.
 
+This plugin uses Google's MLKit On-device Translation services, so make sure you follow the steps to create a firebase project ([Android](https://firebase.google.com/docs/android/setup) | [iOS](https://firebase.google.com/docs/ios/setup)) up to step 3 (where you get the google-services.json or GoogleService-Info.plist). Ignore if you already have google-services.json or GoogleService-Info.plist files.
+
+Additionally, make sure you follow [Google's usage guidelines](https://firebase.google.com/docs/ml-kit/translation-terms) for MLKit usage.
+
+For translation, MLKit and by extension this plugin support the [following languages](https://firebase.google.com/docs/ml-kit/translation-language-support).
+
+For language identification, the plugin supports the [following languages](https://firebase.google.com/docs/ml-kit/langid-support).
+
 #### Table of Contents
 
  - [Installation](#installation)
@@ -31,7 +39,7 @@ Supports both iOS and Android.
 <plugin name="cordova-plugin-mlkit-translate" spec="latest" />
 ```
 
-or run
+or
 
 ```
 cordova plugin add cordova-plugin-mlkit-translate
