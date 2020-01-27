@@ -1,6 +1,6 @@
 {
   "name": "cordova-plugin-mlkit-translate",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "author": "Rigel Glen <rigelglen@gmail.com>",
   "license": "MIT",
   "description": "Cordova plugin for MLKit translate.",
