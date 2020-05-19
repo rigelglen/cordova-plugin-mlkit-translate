@@ -132,7 +132,7 @@ with Ionic Native
 
 ```
 this.mlkitTranslate.translate("hello", "es", "en").then(translatedText=>{
-    console.log(console.log(`Translated text is ${translatedText}`))
+    console.log(`Translated text is ${translatedText}`)
 })
 // prints Translated text is hola
 ```
@@ -272,7 +272,7 @@ or with Ionic Native
 
 ```
 this.mlkitTranslate.downloadModel("es").then(lang=>{
-    console.log(langs);
+    console.log(lang);
 })
 
 // prints {"code", "es", "displayName": "Spanish"}
@@ -307,7 +307,7 @@ or with Ionic Native
 
 ```
 this.mlkitTranslate.deleteModel("es").then(lang=>{
-    console.log(langs);
+    console.log(lang);
 })
 
 // prints {"code", "es", "displayName": "Spanish"}
